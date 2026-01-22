@@ -1,8 +1,10 @@
 import requests
-from app.database import SessionLocal
+from app.database import SessionLocal, engine, Base
 from app.models import Surah, Ayah
 
 URL = "https://api.alquran.cloud/v1/quran/quran-uthmani"
+
+Base.metadata.create_all(bind=engine)
 
 db = SessionLocal()
 
