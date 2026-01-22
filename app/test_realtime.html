@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time STT Test</title>
+</head>
+<body>
+    <h1>Real-time Speech-to-Text</h1>
+    <button id="start">Start Listening</button>
+    <button id="stop" disabled>Stop</button>
+    <div id="status">Not connected</div>
+    <div id="output" style="margin-top:20px; padding:10px; border:1px solid #ccc; min-height:200px;"></div>
+
+    <script>
+        let ws = null;
+        const startBtn = document.getElementById('start');
+        const stopBtn = document.getElementById('stop');
+        const status = document.getElementById('status');
+        const output = document.getElementById('output');
+
+        startBtn.onclick = () => {
+            ws = new WebSocket('ws://localhost:8000/stt/ws/realtime');
+            
+            ws.onopen = () => {
+                status.textContent = 'Connected! Speak now...';
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                
+                if (data.type === 'transcription') {
+                    output.innerHTML += `<p><strong>${new Date().toLocaleTimeString()}:</strong> ${data.text}</p>`;
+                } else if (data.type === 'status') {
+                    status.textContent = data.message;
+                }
+            };
+            
+            ws.onclose = () => {
+                status.textContent = 'Disconnected';
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            };
+        };
+
+        stopBtn.onclick = () => {
+            if (ws) {
+                ws.send('stop');
+                ws.close();
+            }
+        };
+    </script>
+</body>
+</html>

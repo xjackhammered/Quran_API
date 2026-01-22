@@ -1,107 +1,68 @@
-# =========================
-# Python
-# =========================
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.so
-*.egg-info/
-.eggs/
+# ============================================================================
+# Quran API with Speech-to-Text - Git Ignore
+# ============================================================================
 
-# =========================
-# Virtual Environments
-# =========================
-venv/
-.env/
-.env.*
-.venv/
-pip-wheel-metadata/
-
-# =========================
-# FastAPI / Uvicorn
-# =========================
-*.log
-logs/
-uvicorn.log
-
-# =========================
-# Environment variables
-# =========================
+# Environment variables (IMPORTANT - contains API keys!)
 .env
 .env.local
-.env.production
+.env.*.local
 
-# =========================
-# Database
-# =========================
-*.sqlite3
-*.db
-alembic/versions/*.pyc
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
 
-# =========================
-# PostgreSQL
-# =========================
-pgdata/
-postgres-data/
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 
-# =========================
-# Audio files (IMPORTANT)
-# =========================
-uploads/
-audio/
-recordings/
-*.wav
-*.mp3
-*.m4a
-*.ogg
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
 
-# =========================
-# ML / Speech-to-text
-# =========================
-models/
-checkpoints/
-*.pt
-*.onnx
-*.h5
-*.pkl
-
-# =========================
-# Caches & temp files
-# =========================
-.cache/
-pytest_cache/
-.mypy_cache/
-.pytest_cache/
-
-# =========================
-# Editor / IDE
-# =========================
-.vscode/
+# IDE
 .idea/
+.vscode/
 *.swp
 *.swo
+*~
 
-# =========================
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.wav
+*.mp3
+
 # OS files
-# =========================
 .DS_Store
 Thumbs.db
 
-# =========================
-# Coverage / Tests
-# =========================
-.coverage
-htmlcov/
+# Database
+*.db
+*.sqlite3
 
-# =========================
-# Docker (if you add later)
-# =========================
-docker-compose.override.yml
+# Audio recordings (if any)
+recordings/
+audio_output/
 
-# =========================
-# Secrets
-# =========================
-*.pem
-*.key
-*.crt
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# MyPy
+.mypy_cache/
+
+# Local development
+local/
+tmp/
