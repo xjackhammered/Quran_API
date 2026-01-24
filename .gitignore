@@ -1,107 +1,59 @@
-# =========================
-# Python
-# =========================
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.so
-*.egg-info/
-.eggs/
+*$py.class
 
-# =========================
-# Virtual Environments
-# =========================
+# Virtual environment
 venv/
-.env/
-.env.*
+env/
 .venv/
-pip-wheel-metadata/
+.env/
+ENV/
 
-# =========================
-# FastAPI / Uvicorn
-# =========================
-*.log
-logs/
-uvicorn.log
-
-# =========================
-# Environment variables
-# =========================
+# Environment variables (contains secrets!)
 .env
-.env.local
-.env.production
 
-# =========================
-# Database
-# =========================
-*.sqlite3
-*.db
-alembic/versions/*.pyc
-
-# =========================
-# PostgreSQL
-# =========================
-pgdata/
-postgres-data/
-
-# =========================
-# Audio files (IMPORTANT)
-# =========================
-uploads/
-audio/
-recordings/
-*.wav
-*.mp3
-*.m4a
-*.ogg
-
-# =========================
-# ML / Speech-to-text
-# =========================
-models/
-checkpoints/
-*.pt
-*.onnx
-*.h5
-*.pkl
-
-# =========================
-# Caches & temp files
-# =========================
-.cache/
-pytest_cache/
-.mypy_cache/
-.pytest_cache/
-
-# =========================
-# Editor / IDE
-# =========================
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
-# =========================
 # OS files
-# =========================
 .DS_Store
 Thumbs.db
 
-# =========================
-# Coverage / Tests
-# =========================
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Testing
+.pytest_cache/
 .coverage
 htmlcov/
+.tox/
 
-# =========================
-# Docker (if you add later)
-# =========================
-docker-compose.override.yml
+# Logs
+*.log
+logs/
 
-# =========================
-# Secrets
-# =========================
-*.pem
-*.key
-*.crt
+# Temp files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Audio files (temporary)
+*.wav
+*.mp3
+audio_temp/
+
+# Database
+*.db
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
